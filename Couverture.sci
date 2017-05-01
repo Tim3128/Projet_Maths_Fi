@@ -9,7 +9,7 @@ endfunction
 
 
 // Quantités d'actifs à détenir à l'instant t pour couvrir l'option, en fonction du prix des actifs
-function [H0,H1,H2]=Couverture(t,S1,S2)
+function [H1,H2]=Couverture(t,S1,S2)
     S1_tilde=exp(-r*t)*S1
     S2_tilde=exp(-r*t)*S2
     if t==T then
@@ -19,5 +19,5 @@ function [H0,H1,H2]=Couverture(t,S1,S2)
         [H1,H2]=F_dx(t,S1_tilde,S2_tilde)
     end
 
-    H0=F(t,S1_tilde,S2_tilde)-H1*S1_tilde-H2*S2_tilde
+    //H0=F(t,S1_tilde,S2_tilde)-H1*S1_tilde-H2*S2_tilde
 endfunction
