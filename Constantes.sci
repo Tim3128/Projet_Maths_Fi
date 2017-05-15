@@ -1,5 +1,6 @@
 sigma_1=0.2
 sigma_2=0.2 //volatilité des 2 actifs
+sigma=sqrt(sigma_1**2+sigma_2**2)
 
 T=1 //échéance en année
 dt=0.01 //pas de discrétisation

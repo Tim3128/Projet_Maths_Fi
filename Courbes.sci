@@ -19,16 +19,17 @@ function evol_prix(dt,sigma_1,sigma_2,r,S1_0,S2_0)
 endfunction
 
 function couverture(dt,sigma_1,sigma_2,r,S1_0,S2_0)
+    sigma=sqrt(sigma_1**2+sigma_2**2)
     n=floor(T/dt)
     t=temps(dt)
     [S1,S2]=prix_actifs(dt,sigma_1,sigma_2,r,S1_0,S2_0,0)
     V(1)=F(0,S1(1),S2(1))
     P(1)=V(1)
     for i=2:n+1
-        [H1(i),H2(i)]=Couverture(t(i),S1(i),S2(i))
+        [H1(i),H2(i)]=Couverture(t(i),S1(i),S2(i),sigma)
         V(i)=V(i-1)+exp(r*t(i))*(H1(i)*(S1(i)-S1(i-1))+H2(i)*(S2(i)-S2(i-1)))
         H0(i)=exp(-r*t(i))*(V(i)-H1(i)*S1(i)-H2(i)*S2(i))
-        P(i)=F(t(i),S1(i),S2(i))
+        P(i)=F(t(i),S1(i),S2(i),sigma)
     end
     a=gca()
     a.x_location="origin"
