@@ -42,7 +42,7 @@ endfunction
 
 
 function exercice_couverture(dt,sigma_1,sigma_2,r,S1_0,S2_0)
-    for k=1:1000 // 1000 trajectoires indépendantes
+    for k=1:100 // 1000 trajectoires indépendantes
         [V_T,S1_T,S2_T]=valeurs_terminales(dt,sigma_1,sigma_2,r,S1_0,S2_0)
         dS(k)=S1_T-S2_T
         V(k)=V_T
