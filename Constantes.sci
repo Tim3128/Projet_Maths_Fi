@@ -3,12 +3,12 @@ sigma_2=0.2 //volatilité des 2 actifs
 sigma=sqrt(sigma_1**2+sigma_2**2)
 
 T=1 //échéance en année
-dt=0.01 //pas de discrétisation
+dt=0.001 //pas de discrétisation
 
-S1_0=100 
-S2_0=100 // prix des actifs à l'instant 0
+S1_0=100
+S2_0=90 // prix des actifs à l'instant 0
 
-r=0.1 // taux sans risque
+r=0.05 // taux sans risque
 
 function set_dot(my_color,my_size)
   drawlater();
